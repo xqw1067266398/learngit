@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+      
+    <script>  
+        $(document).ready(function(){  
+            if($.cookie("userName")){  
+                alert('填充cookie');  
+                $('.userName').val($.cookie("userName"));  
+                $('.pwd').val($.cookie("pwd"));  
+            }  
+            $('button').click(function(){  
+                var userName=$('.userName').val();  
+                var pwd=$('.pwd').val();  
+                $.cookie("userName",userName,{expires:7});  
+//                保存七天  
+                $.cookie('pwd',pwd,{expires:7});  
+                alert('成功胜出cookie，下次进网页自动填充');  
+            })  
+        })  
+    </script>  
+  
+</head>  
+<body>  
+<input type="text" class="userName"/><br/><br/>  
+<input type="password" class="pwd"/><br/><br/>  
+<button >登录</button>  
+</body>  
+</html>
